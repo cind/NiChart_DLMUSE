@@ -1,0 +1,14 @@
+# Main pipeline
+torch==2.2.1
+DLICV
+DLMUSE
+nibabel>=5.2
+scipy
+
+# Developer tools
+pytest
+pytest-cov
+huggingface_hub
+argparse
+pathlib
+pre-commit
