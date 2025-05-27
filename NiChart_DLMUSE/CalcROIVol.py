@@ -212,4 +212,7 @@ def combine_roi_csv(
             logging.info("Skip subject, out csv missing: " + in_csv)
     if len(dfs) > 0:
         df_out = pd.concat(dfs)
-    df_out.to_csv(out_csv, index=False)
+        df_out.to_csv(out_csv, index=False)
+    else:
+        dfs.to_csv(out_csv, index=False)
+
