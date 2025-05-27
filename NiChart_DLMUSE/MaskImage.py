@@ -5,7 +5,7 @@ import nibabel as nib
 import numpy as np
 import pandas as pd
 from scipy import ndimage
-from scipy.ndimage.measurements import label
+from scipy.ndimage import label
 
 
 def calc_bbox_with_padding(img: np.ndarray, perc_pad: int = 10) -> np.ndarray:
