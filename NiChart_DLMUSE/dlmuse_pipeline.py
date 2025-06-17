@@ -138,7 +138,12 @@ def run_pipeline(
     if progress_bar is not None:
         progress_bar.update(1)
         progress_bar.set_description("Running DLMUSE")
-    run_dlmuse(in_dir, in_suff, out_dir, out_suff, device, dlmuse_extra_args)
+
+    try:
+        run_dlmuse(in_dir, in_suff, out_dir, out_suff, device, dlmuse_extra_args)
+    except Exception as err:
+        logging.error("DLMUSE failed.")
+        raise err
 
     logging.info(f"Applying DLMUSE for batch [{sub_fldr}] done")
 
@@ -179,7 +184,11 @@ def run_pipeline(
     if progress_bar is not None:
         progress_bar.update(1)
         progress_bar.set_description("Combining masks")
-    apply_combine_masks(df_img, in_dir, in_suff, mask_dir, mask_suff, out_dir, out_suff)
+    try:
+        apply_combine_masks(df_img, in_dir, in_suff, mask_dir, mask_suff, out_dir, out_suff)
+    except Exception as err:
+        logging.error("apply_comgine_masks failed.")
+        raise err
 
     logging.info(f"Combining DLICV and MUSE masks for batch [{sub_fldr}] done")
 
@@ -205,9 +214,19 @@ def run_pipeline(
     if progress_bar is not None:
         progress_bar.update(1)
         progress_bar.set_description("Creating ROI CSV")
-    apply_create_roi_csv(
-        df_img, in_dir, in_suff, DICT_MUSE_SINGLE, DICT_MUSE_DERIVED, out_dir, out_suff
-    )
+    try:
+        apply_create_roi_csv(df_img,
+                             in_dir,
+                             in_suff,
+                             DICT_MUSE_SINGLE,
+                             DICT_MUSE_DERIVED,
+                             out_dir,
+                             out_suff
+                             )
+    except Exception as err:
+        logging.error("apply_create_roi_csv failed.")
+        raise err
+
     logging.info(f"Create ROI csv for batch [{sub_fldr}] done")
 
     logging.info(f"Combine ROI csv for batch [{sub_fldr}]...")
