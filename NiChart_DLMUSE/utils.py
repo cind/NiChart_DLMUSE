@@ -12,7 +12,7 @@ import pandas as pd
 LIST_IMG_EXT = [".nii", ".nii.gz"]
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename="pipeline.log", encoding="utf-8", level=logging.DEBUG)
+#logging.basicConfig(filename="pipeline.log", encoding="utf-8", level=logging.DEBUG)
 
 
 def get_basename(

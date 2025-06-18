@@ -9,7 +9,7 @@ from nibabel.orientations import axcodes2ornt, ornt_transform
 IMG_EXT = ".nii.gz"
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename="pipeline.log", encoding="utf-8", level=logging.DEBUG)
+#logging.basicConfig(filename="pipeline.log", encoding="utf-8", level=logging.DEBUG)
 
 
 def reorient_img(in_img: Any, ref: Any, out_img: str) -> None:
