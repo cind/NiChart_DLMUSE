@@ -32,7 +32,7 @@ DICT_MUSE_DERIVED = pkg_resources.resource_filename(
 )
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename="pipeline.log", encoding="utf-8", level=logging.DEBUG)
+#logging.basicConfig(filename="pipeline.log", encoding="utf-8", level=logging.DEBUG)
 
 
 def run_pipeline(
